@@ -1,0 +1,54 @@
+[project]
+name = "bulk_filigrane"
+version = "2025.0.0"
+description = ""
+readme = "README.md"
+requires-python = "~=3.13"
+
+dependencies = [
+    "requests",
+    "click",
+]
+
+[tool.uv]
+default-groups = "all"
+
+[dependency-groups]
+dev = [
+    "fixit",
+    "types-requests",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.0,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.ruff.lint]
+select = [
+    "F",   # pyflakes
+    "E",   # pycodestyle
+    "I",   # isort
+    "ANN", # flake8 type annotations
+    "RUF", # ruff-specific rules
+]
+
+fixable = ["ALL"]
+pydocstyle.convention = "google"
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+disallow_untyped_defs = true
+
+[project.scripts]
+bulk-filigrane = "bulk_filigrane.main:main"
+gui = "bulk_filigrane.gui:build_gui"
