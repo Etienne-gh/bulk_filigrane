@@ -207,7 +207,7 @@ def main(
             total = len(futures)
             processed = 0
 
-            click.echo("Processing files: 0/{0}".format(total), nl=False)
+            click.echo(f"Processing files: 0/{total}", nl=False)
 
             for future in as_completed(futures):
                 try:
